@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: searched
+source: https://nara.com/.well-known/ucp + https://nara.com/llms.txt
+note: >-
+  The storefront's only versioned surface is the Universal Commerce Protocol (UCP)
+  merchant profile. Version negotiation is dated-protocol based. No public status page,
+  SLA, or deprecation policy is published for this direct-to-consumer storefront, so no
+  StatusPage or Deprecation pointer is asserted.
+versioning:
+  scheme: dated-protocol
+  current: '2026-04-08'
+  supported:
+  - '2026-04-08'
+  - '2026-01-23'
+  negotiation: >-
+    Client passes a supported UCP version; per-version profiles are discoverable at
+    /.well-known/ucp/{version}. Discover the current set via GET /.well-known/ucp.
+  version_profiles:
+    '2026-04-08': https://nara-organics.myshopify.com/.well-known/ucp/2026-04-08
+    '2026-01-23': https://nara-organics.myshopify.com/.well-known/ucp/2026-01-23
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+status_page: null
+notices:
+- type: product-recall
+  summary: >-
+    A voluntary infant-formula recall is being communicated through the storefront at
+    time of capture; confirm current product availability before transacting.

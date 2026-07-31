@@ -1,0 +1,39 @@
+generated: '2026-07-20'
+method: derived
+source: >-
+  well-known/nara-organics-openid-configuration.json,
+  well-known/nara-organics-oauth-authorization-server.json,
+  well-known/nara-organics-ucp.json,
+  authentication/nara-organics-authentication.yml
+note: >-
+  Cross-cutting standards conformance derived from the storefront's live discovery
+  documents (Shopify Customer Account provider + UCP merchant profile). No published
+  compliance/certification program (SOC 2 / ISO 27001 / PCI / HIPAA) was found, so no
+  Compliance pointer is asserted.
+standards:
+- id: openid-connect
+  conforms: true
+  evidence: >-
+    /.well-known/openid-configuration served (Shopify Customer Account OIDC,
+    issuer shopify.com/authentication/74927341841); RS256 id_token signing.
+- id: oauth2
+  conforms: true
+  evidence: authorization_code + refresh_token grants, authorizationCode flow.
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server served (200) with issuer, endpoints, scopes_supported.
+- id: oauth2-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported = [S256].
+- id: mcp
+  conforms: true
+  evidence: UCP shopping service exposed over an MCP transport endpoint (/api/ucp/mcp).
+- id: universal-commerce-protocol
+  conforms: true
+  evidence: /.well-known/ucp merchant profile, supported versions 2026-04-08 and 2026-01-23.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no OpenAPI or documented problem+json error envelope for the storefront surface.

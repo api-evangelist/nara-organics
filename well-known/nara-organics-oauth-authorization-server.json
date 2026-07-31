@@ -1,0 +1,46 @@
+{
+  "issuer": "https://shopify.com/authentication/74927341841",
+  "token_endpoint": "https://account.nara.com/authentication/oauth/token",
+  "authorization_endpoint": "https://account.nara.com/authentication/oauth/authorize",
+  "end_session_endpoint": "https://account.nara.com/authentication/logout",
+  "jwks_uri": "https://account.nara.com/authentication/.well-known/jwks.json",
+  "scopes_supported": [
+    "openid",
+    "email",
+    "customer-account-api:full",
+    "customer-account-mcp-api:full"
+  ],
+  "response_types_supported": [
+    "code"
+  ],
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_basic"
+  ],
+  "subject_types_supported": [
+    "public"
+  ],
+  "id_token_signing_alg_values_supported": [
+    "RS256"
+  ],
+  "claims_supported": [
+    "iss",
+    "sub",
+    "aud",
+    "exp",
+    "iat",
+    "nonce",
+    "sid",
+    "email",
+    "email_verified"
+  ],
+  "code_challenge_methods_supported": [
+    "S256"
+  ],
+  "grant_types_supported": [
+    "authorization_code",
+    "refresh_token",
+    "urn:ietf:params:oauth:grant-type:jwt-bearer"
+  ],
+  "op_policy_uri": "https://www.shopify.com/legal/privacy",
+  "op_tos_uri": "https://www.shopify.com/legal/terms"
+}

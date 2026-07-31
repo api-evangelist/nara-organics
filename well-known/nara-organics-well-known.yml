@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: searched
+source: live probes of https://nara.com/.well-known/*
+host: https://nara.com
+documents:
+- path: /.well-known/openid-configuration
+  status: 200
+  file: nara-organics-openid-configuration.json
+  note: Shopify customer-account OIDC discovery (issuer shopify.com/authentication/74927341841)
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: nara-organics-oauth-authorization-server.json
+  note: RFC 8414 OAuth 2.0 authorization-server metadata (Shopify Customer Account) — scopes_supported, PKCE S256, grant types
+- path: /.well-known/ucp
+  status: 200
+  file: nara-organics-ucp.json
+  note: Universal Commerce Protocol (UCP) merchant profile — agent-driven commerce services, capabilities, payment handlers
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404

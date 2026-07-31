@@ -1,0 +1,42 @@
+generated: '2026-07-20'
+method: searched
+status: published
+source: https://nara.com/llms.txt + https://nara.com/.well-known/ucp
+server:
+  name: nara-organics-ucp
+  transport: mcp
+  url: https://nara-organics.myshopify.com/api/ucp/mcp
+  alt_url: https://nara.com/api/ucp/mcp
+  protocol: Universal Commerce Protocol (UCP)
+  protocol_versions:
+  - '2026-04-08'
+  - '2026-01-23'
+  spec: https://ucp.dev/2026-04-08/specification/overview/
+  schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+  platform: Shopify
+notes: >-
+  Native Shopify UCP MCP endpoint for agent-driven commerce. Discover the live tool
+  set with the MCP `tools/list` method (a valid UCP agent profile URI is required).
+  Checkout requires contemporaneous human buyer approval; the endpoint is rate-limited
+  per IP (back off on HTTP 429). The tools below are the documented UCP shopping flow
+  from /llms.txt — confirm names/schemas against the live tools/list response.
+tools:
+- name: search_catalog
+  description: Find products matching the buyer's intent.
+  capability: dev.ucp.shopping.catalog.search
+- name: create_cart
+  description: Create a cart and add desired items.
+  capability: dev.ucp.shopping.cart
+- name: create_checkout
+  description: Start the purchase flow for a cart.
+  capability: dev.ucp.shopping.checkout
+- name: update_checkout
+  description: Set shipping address and method on a checkout.
+  capability: dev.ucp.shopping.fulfillment
+- name: complete_checkout
+  description: Finalize the purchase (buyer must approve payment).
+  capability: dev.ucp.shopping.checkout
+payment_handlers:
+- com.google.pay
+- dev.shopify.card
+- dev.shopify.shop_pay

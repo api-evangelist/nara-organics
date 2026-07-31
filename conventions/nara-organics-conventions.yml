@@ -1,0 +1,44 @@
+generated: '2026-07-20'
+method: searched
+source: https://nara.com/llms.txt + https://nara.com/.well-known/ucp
+platform: Shopify
+protocol: Universal Commerce Protocol (UCP)
+authentication:
+  style: OIDC (Shopify Customer Account); read-only browsing needs no auth
+  ref: authentication/nara-organics-authentication.yml
+versioning:
+  style: dated UCP protocol versions
+  current: '2026-04-08'
+  supported: ['2026-04-08', '2026-01-23']
+  negotiation: pass supported version; discover via GET /.well-known/ucp
+rate_limiting:
+  documented: true
+  signal: HTTP 429
+  guidance: MCP endpoint is rate-limited per IP; back off on 429 responses.
+buyer_approval:
+  documented: true
+  rule: >-
+    Checkout requires contemporaneous human buyer approval. Agents must not complete
+    payment without explicit buyer consent; route through Shop Pay (shop.app/SKILL.md)
+    when live approval is not available.
+buyer_context:
+  documented: true
+  fields: [context.address_country, context.currency]
+  guidance: Pass buyer context for accurate pricing and availability.
+idempotency:
+  documented: false
+pagination:
+  documented: false
+read_only_surface:
+  products: GET /products/{handle}.json
+  collections: GET /collections/{handle}/products.json
+  search: GET /search?q={query}&type=product
+  sitemap: GET /sitemap.xml
+agent_discovery:
+  llms_txt: https://nara.com/llms.txt
+  agents_md: https://nara.com/agents.md
+cross_links:
+  authentication: authentication/nara-organics-authentication.yml
+  scopes: scopes/nara-organics-scopes.yml
+  mcp: mcp/nara-organics-mcp.yml
+  well_known: well-known/nara-organics-well-known.yml

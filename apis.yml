@@ -1,8 +1,27 @@
 aid: nara-organics
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nara-organics.png
 name: Nara Organics
-description: 'Nara Organics is a company surfaced as a portfolio company of initialized-capital and added
-  to the API Evangelist network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Nara Organics is a direct-to-consumer organic infant-formula brand, surfaced as a
+  portfolio company of Initialized Capital and profiled in the API Evangelist network.
+  It is not a traditional API provider, but its Shopify storefront at nara.com exposes a
+  modern agent-native commerce surface: a published Universal Commerce Protocol (UCP) MCP
+  endpoint for agent-driven catalog search, cart, and buyer-approved checkout; a Shopify
+  Customer Account OIDC provider; and /llms.txt + /agents.md agent instructions covering the
+  read-only product surface and the Shop Pay flow. The company is currently managing a
+  voluntary infant-formula recall communicated through its storefront.
 url: https://raw.githubusercontent.com/api-evangelist/nara-organics/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,16 +31,75 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Consumer
-apis: []
+- Commerce
+- Retail
+- Shopify
+- Agentic Commerce
+- Universal Commerce Protocol
+- MCP
+- Infant Formula
+apis:
+- name: Nara Organics Commerce (UCP)
+  description: >-
+    Agent-driven commerce over the Universal Commerce Protocol (UCP) on the Nara Organics
+    Shopify storefront — catalog search, cart, and buyer-approved checkout via a published
+    MCP endpoint, plus an unauthenticated read-only product/collection surface.
+  humanURL: https://nara.com/
+  baseURL: https://nara.com
+  tags:
+  - Commerce
+  - Agentic Commerce
+  - MCP
+  - Shopify
+  properties:
+  - type: MCPServer
+    url: mcp/nara-organics-mcp.yml
+  - type: Authentication
+    url: authentication/nara-organics-authentication.yml
+  - type: OAuthScopes
+    url: scopes/nara-organics-scopes.yml
+  - type: Conventions
+    url: conventions/nara-organics-conventions.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: MCPServer
+  url: mcp/nara-organics-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/nara-organics-llms.txt
+- type: WellKnown
+  url: well-known/nara-organics-well-known.yml
+- type: Authentication
+  url: authentication/nara-organics-authentication.yml
+- type: OAuthScopes
+  url: scopes/nara-organics-scopes.yml
+- type: Conventions
+  url: conventions/nara-organics-conventions.yml
+- type: DomainSecurity
+  url: security/nara-organics-domain-security.yml
+- type: Conformance
+  url: conformance/nara-organics-conformance.yml
+- type: Lifecycle
+  url: lifecycle/nara-organics-lifecycle.yml
+- type: Documentation
+  url: https://nara.com/agents.md
+- type: PrivacyPolicy
+  url: https://nara.com/policies/privacy-policy
+- type: TermsOfService
+  url: https://nara.com/policies/terms-of-service
 - type: Website
   url: https://nara.com/
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1

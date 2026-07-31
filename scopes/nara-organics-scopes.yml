@@ -1,0 +1,19 @@
+generated: '2026-07-20'
+method: searched
+source: https://nara.com/.well-known/oauth-authorization-server (scopes_supported) + https://nara.com/.well-known/openid-configuration
+docs: https://shopify.dev/docs/api/customer
+schemes:
+- name: ShopifyCustomerAccountOIDC
+  type: openIdConnect
+  authorizationUrl: https://account.nara.com/authentication/oauth/authorize
+  tokenUrl: https://account.nara.com/authentication/oauth/token
+  source: well-known/nara-organics-openid-configuration.json
+scopes:
+- scope: openid
+  description: OIDC authentication of the customer account.
+- scope: email
+  description: Access to the customer's email address.
+- scope: customer-account-api:full
+  description: Full access to the Shopify Customer Account API for the signed-in customer.
+- scope: customer-account-mcp-api:full
+  description: Full access to the Customer Account MCP API surface for agent-driven access.
