@@ -14,12 +14,11 @@ server:
   spec: https://ucp.dev/2026-04-08/specification/overview/
   schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
   platform: Shopify
-notes: >-
-  Native Shopify UCP MCP endpoint for agent-driven commerce. Discover the live tool
-  set with the MCP `tools/list` method (a valid UCP agent profile URI is required).
-  Checkout requires contemporaneous human buyer approval; the endpoint is rate-limited
-  per IP (back off on HTTP 429). The tools below are the documented UCP shopping flow
-  from /llms.txt — confirm names/schemas against the live tools/list response.
+notes: Native Shopify UCP MCP endpoint for agent-driven commerce. Discover the live tool set with the
+  MCP `tools/list` method (a valid UCP agent profile URI is required). Checkout requires contemporaneous
+  human buyer approval; the endpoint is rate-limited per IP (back off on HTTP 429). The tools below are
+  the documented UCP shopping flow from /llms.txt — confirm names/schemas against the live tools/list
+  response.
 tools:
 - name: search_catalog
   description: Find products matching the buyer's intent.
@@ -40,3 +39,11 @@ payment_handlers:
 - com.google.pay
 - dev.shopify.card
 - dev.shopify.shop_pay
+deployment:
+  mode: remote
+  endpoint: https://nara-organics.myshopify.com/api/ucp/mcp
+  verified: probed
+  probe: live
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
