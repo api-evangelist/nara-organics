@@ -60,7 +60,6 @@ apis:
     Shopify storefront — catalog search, cart, and buyer-approved checkout via a published
     MCP endpoint, plus an unauthenticated read-only product/collection surface.
   humanURL: https://nara.com/
-  baseURL: https://nara.com
   tags:
   - Commerce
   - Agentic Commerce
@@ -75,6 +74,9 @@ apis:
     url: scopes/nara-organics-scopes.yml
   - type: Conventions
     url: conventions/nara-organics-conventions.yml
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: ucp
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
