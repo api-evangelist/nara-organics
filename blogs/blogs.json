@@ -1,0 +1,21 @@
+{
+  "repo": "nara-organics",
+  "feeds": [
+    {
+      "source": "https://nara.com/blogs/the-feed",
+      "feed_url": "https://nara.com/blogs/the-feed.atom",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    },
+    {
+      "source": "https://nara.com/blogs/the-feed.atom",
+      "feed_url": "https://nara.com/blogs/the-feed.atom",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-10-10T13:15:00Z"
+}
